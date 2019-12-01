@@ -4,10 +4,11 @@ import {
   Text,
   SectionList,
   Button,
+  View
 } from 'react-native';
 
 import Item from './Item'
-import { styles } from './styles'
+import { styles } from './styles/stylesItemsList'
 import AddField from './AddField'
 
 export default class ItemsList extends React.Component {
@@ -31,13 +32,12 @@ export default class ItemsList extends React.Component {
   render() {
     if (this.state.addField === true) {
       return (
-        <>
-        <Text style={ styles.header }> Add Field </Text>
-        <AddField onComplete={(key, value) => this.addOrModifyField(key, value)}/>
-        </>
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+          <Text style={ styles.header }> Add Field </Text>
+          <AddField onComplete={(key, value) => this.addOrModifyField(key, value)} exitWithoutSave={ () => this.stopAddField() }/>
+        </View>
       )
-    }
-    else {
+    } else {
       return (
         <>
         <Text style={ styles.header }> View Object </Text>
@@ -76,6 +76,12 @@ export default class ItemsList extends React.Component {
     }
     this.setState({
       sectionsData: newSectionData,
+      addField: false,
+    })
+  }
+
+  stopAddField() {
+    this.setState({
       addField: false,
     })
   }

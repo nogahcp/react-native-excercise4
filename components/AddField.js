@@ -3,7 +3,7 @@ import {
   TextInput, View, Button,
 } from 'react-native';
 
-import { styles } from './styles'
+import { styles } from './styles/stylesAddField'
 
 export default class AddField extends React.Component {
   constructor(props) {
@@ -11,14 +11,19 @@ export default class AddField extends React.Component {
     this.state = {key: '', value: ''}
   }
 
+  //add/modify Field
   addField() {
-    console.log("addField");
     this.props.onComplete(this.state.key, this.state.value)
+  }
+
+  //dont add/modify field - just return
+  returnToList() {
+    this.props.exitWithoutSave()
   }
 
   render() {
     return (
-      <View style={{padding: 10}}>
+      <View style={ styles.container }>
         <TextInput
             style={ styles.input }
             placeholder="Key"
@@ -31,8 +36,14 @@ export default class AddField extends React.Component {
               onChangeText={(value) => this.setState({value})}
               value={this.state.value}
             />
-        <Button title="Add"
-          onPress={ () => this.addField() }/>
+        <View style={ styles.button }>
+          <Button title="Add"
+            onPress={ () => this.addField() }
+            disabled={ (this.state.key.length === 0) || (this.state.value.length === 0) }
+            />
+          <Button title="Back"
+            onPress={ () => this.returnToList() }/>
+        </View>
       </View>
     )
 

@@ -3,7 +3,7 @@ import {
   Text,
 } from 'react-native';
 
-import { styles } from './styles'
+import { styles } from './styles/stylesItem'
 
 export default class Item extends React.Component {
   //return item content given in props

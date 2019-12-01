@@ -25,19 +25,17 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import ItemsList from './ItemsList'
-import { styles } from './styles'
+import { styles } from './styles/stylesItemsList'
 
 
 const App: () => React$Node = () => {
   const object = {
-    Name: "Alex", Age: 30, City: "TLV", Hobbis: ["reading", "sport", "movies"]
+    Name: "Alex", Age: 30, City: "TLV", Hobbies: ["reading", "sport", "movies"]
   }
   return (
-    <>
       <SafeAreaView style={ styles.container }>
         <ItemsList  object={ object }/>
       </SafeAreaView>
-    </>
   );
 };
 
