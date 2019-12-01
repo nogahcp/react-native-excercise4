@@ -30,12 +30,11 @@ import { styles } from './styles'
 
 const App: () => React$Node = () => {
   const object = {
-    name: "Alex", age: 30, city: "TLV", hobbis: ["reading", "sport", "movies"]
+    Name: "Alex", Age: 30, City: "TLV", Hobbis: ["reading", "sport", "movies"]
   }
   return (
     <>
       <SafeAreaView style={ styles.container }>
-        <Text style={ styles.header }> View Objects </Text>
         <ItemsList  object={ object }/>
       </SafeAreaView>
     </>

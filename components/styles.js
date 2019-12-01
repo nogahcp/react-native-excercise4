@@ -20,4 +20,9 @@ export const styles = StyleSheet.create({
     fontSize: 32,
     alignSelf: 'center',
   },
+  input: {
+    padding: 5,
+    fontSize: 20,
+    alignSelf: 'center',
+  }
 });
