@@ -15,4 +15,9 @@ export const styles = StyleSheet.create({
     fontSize: 32,
     alignSelf: 'center',
   },
+  addFieldView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });
